@@ -1,0 +1,1 @@
+wget -q -O bikes-2016.csv "https://data.stadt-zuerich.ch/dataset/83ca481f-275c-417b-9598-3902c481e400/resource/6a1626c9-1547-4030-b0d7-ff9226087385/download/2016_verkehrszaehlungen_werte_fussgaenger_velo.csv"
