@@ -18,8 +18,33 @@ Now, we can install Python 3:
 $ brew install python
 ```
 
-Download pip via the get-pip.py script.
+### Working with Python 3
+At this point, you have the system Python 2.7 available, potentially the Homebrew version of Python 2 installed, and the Homebrew version of Python 3 as well.
+```
+$ python 
+```
+will launch the Homebrew-installed Python 3 interpreter.
+```
+$ python2 
+```
+will launch the Homebrew-installed Python 2 interpreter (if any).
+```
+$ python3 
+```
+will launch the Homebrew-installed Python 3 interpreter.
 
+If the Homebrew version of Python 2 is installed then pip2 will point to Python 2. If the Homebrew version of Python 3 is installed then pip will point to Python 3.
+
+The rest of the guide will assume that python references Python 3.
+
+Do I have a Python 3 installed?
+``` 
+$ python --version
+Python 3.7.1 # Success! 
+```
+### Installing/Upgrading PIP
+
+Download pip via the get-pip.py script.
 Download pip by running the following command:
 ```
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
@@ -169,27 +194,3 @@ To delete:
 $ rmvirtualenv venv
 ```
 
-### Working with Python 3
-At this point, you have the system Python 2.7 available, potentially the Homebrew version of Python 2 installed, and the Homebrew version of Python 3 as well.
-```
-$ python 
-```
-will launch the Homebrew-installed Python 3 interpreter.
-```
-$ python2 
-```
-will launch the Homebrew-installed Python 2 interpreter (if any).
-```
-$ python3 
-```
-will launch the Homebrew-installed Python 3 interpreter.
-
-If the Homebrew version of Python 2 is installed then pip2 will point to Python 2. If the Homebrew version of Python 3 is installed then pip will point to Python 3.
-
-The rest of the guide will assume that python references Python 3.
-
-Do I have a Python 3 installed?
-``` 
-$ python --version
-Python 3.7.1 # Success! 
-```
