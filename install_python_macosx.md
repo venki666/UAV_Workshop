@@ -18,7 +18,30 @@ Now, we can install Python 3:
 $ brew install python
 ```
 
+Download pip via the get-pip.py script.
 
+Download pip by running the following command:
+```
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+```
+The curl command allows you to specify a direct download link. Use the -o option to set the name of the downloaded file.
+
+Install the downloaded package by running:
+```
+python3 get-pip.py
+```
+If pip is already installed:
+```
+pip install --upgrade pip
+```
+If you get an error about the pip command not being found, the easiest thing to do is use your Python interpreter:
+```
+python -m pip install --upgrade pip
+```
+Some installations will also install an alias called pip3:
+```
+pip3 install --upgrade pip
+```
 
 
 
