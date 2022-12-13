@@ -282,3 +282,25 @@ $ pyenv global system
 $ python -V
 ```
 
+### Install Jupyterlab or Jupyter Notebook 
+#### JupyterLab
+Install JupyterLab with pip:
+```
+pip install jupyterlab
+```
+Note: If you install JupyterLab with conda or mamba, we recommend using the conda-forge channel.
+
+Once installed, launch JupyterLab with:
+```
+jupyter-lab
+```
+#### Jupyter Notebook
+Install the classic Jupyter Notebook with:
+```
+pip install notebook
+```
+To run the notebook:
+```
+jupyter notebook
+```
+
