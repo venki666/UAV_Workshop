@@ -194,3 +194,86 @@ To delete:
 $ rmvirtualenv venv
 ```
 
+### Manage multiple versions of Python
+Install pyenv - but before that install dependencies 
+```
+brew install openssl readline sqlite3 xz zlib
+```
+Install pyenv
+```
+curl https://pyenv.run | bash
+```
+Update your bashrc with pyenv path 
+```
+Load pyenv automatically by adding
+the following to ~/.bashrc:
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+```
+Using pyenv to Install Python
+Now that you have pyenv installed, installing Python is the next step. You have many versions of Python to choose from. If you wanted to see all the available CPython 3.6 through 3.8, you can do this:
+```
+$ pyenv install --list | grep " 3\.[678]"
+```
+If you want to see all the versions, you can do the following:
+
+$ pyenv install --list
+Once you find the version you want, you can install it with a single command:
+
+$ pyenv install -v 3.7.2
+
+Installation Location
+As mentioned before, pyenv works by building Python from source. Each version that you have installed is located nicely in your pyenv root directory:
+
+$ ls ~/.pyenv/versions/
+2.7.15  3.6.8  3.8-dev
+All of your versions will be located here. This is handy because removing these versions is trivial:
+
+$ rm -rf ~/.pyenv/versions/2.7.15
+Of course pyenv also provides a command to uninstall a particular Python version:
+
+$ pyenv uninstall 2.7.15
+
+Now that you’ve installed a couple of different Python versions, let’s see some basics on how to use them. First, check what versions of Python you have available:
+
+$ pyenv versions
+* system (set by /home/realpython/.pyenv/version)
+  2.7.15
+  3.6.8
+  3.8-dev
+The * indicates that the system Python version is active currently. You’ll also notice that this is set by a file in your root pyenv directory. This means that, by default, you are still using your system Python:
+
+$ python -V
+Python 2.7.12
+If you try to confirm this using which, you’ll see this:
+
+$ which python
+/home/realpython/.pyenv/shims/python
+This might be surprising, but this is how pyenv works. pyenv inserts itself into your PATH and from your OS’s perspective is the executable that is getting called. If you want to see the actual path, you can run the following:
+
+$ pyenv which python
+/usr/bin/python
+If, for example, you wanted to use version 2.7.15, then you can use the global command:
+
+$ pyenv global 2.7.15
+$ python -V
+Python 2.7.15
+
+$ pyenv versions
+  system
+* 2.7.15 (set by /home/realpython/.pyenv/version)
+  3.6.8
+  3.8-dev
+
+If you ever want to go back to the system version of Python as the default, you can run this:
+
+$ pyenv global system
+$ python -V
+
+Change python version system-wide with update-alternatives python
+To change python version system-wide we can use update-alternatives python command. Logged in as a root user, first list all available python alternatives:
+
+$ update-alternatives --list python
+update-alternatives: error: no alternatives for python
