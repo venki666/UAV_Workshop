@@ -43,7 +43,131 @@ Some installations will also install an alias called pip3:
 pip3 install --upgrade pip
 ```
 
+### Installing Pipenv
+Pipenv is a dependency manager for Python projects. If you’re familiar with Node.js’ npm or Ruby’s bundler, it is similar in spirit to those tools. While pip can install Python packages, Pipenv is recommended as it’s a higher-level tool that simplifies dependency management for common use cases.
 
+Use pip to install Pipenv:
+```
+$ pip install --user pipenv
+```
+Installing packages for your project
+Pipenv manages dependencies on a per-project basis. To install packages, change into your project’s directory (or just an empty directory for this tutorial) and run:
+```
+$ cd project_folder
+$ pipenv install "pythonlib"
+```
+Pipenv will install the excellent Requests library and create a Pipfile for you in your project’s directory. The Pipfile is used to track which dependencies your project needs in case you need to re-install them, such as when you share your project with others.
+
+Then you can run this script using pipenv run:
+```
+$ pipenv run python main.py
+```
+
+### Installing virtualenv
+virtualenv is a tool to create isolated Python environments. virtualenv creates a folder which contains all the necessary executables to use the packages that a Python project would need.
+
+It can be used standalone, in place of Pipenv.
+
+Install virtualenv via pip:
+```
+$ pip install virtualenv
+```
+Test your installation:
+```
+$ virtualenv --version
+```
+Basic Usage
+Create a virtual environment for a project:
+```
+$ cd project_folder
+$ virtualenv venv
+```
+virtualenv venv will create a folder in the current directory which will contain the Python executable files, and a copy of the pip library which you can use to install other packages. The name of the virtual environment (in this case, it was venv) can be anything; omitting the name will place the files in the current directory instead.
+
+This creates a copy of Python in whichever directory you ran the command in, placing it in a folder named venv.
+
+You can also use the Python interpreter of your choice (like python2.7).
+```
+$ virtualenv -p /usr/bin/python2.7 venv
+```
+or change the interpreter globally with an env variable in ~/.bashrc:
+```
+$ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.7
+```
+To begin using the virtual environment, it needs to be activated:
+```
+$ source venv/bin/activate
+```
+The name of the current virtual environment will now appear on the left of the prompt (e.g. (venv)Your-Computer:project_folder UserName$) to let you know that it’s active. From now on, any package that you install using pip will be placed in the venv folder, isolated from the global Python installation.
+
+Install packages using the pip command:
+```
+$ pip install "python_lib"
+```
+If you are done working in the virtual environment for the moment, you can deactivate it:
+```
+$ deactivate
+```
+This puts you back to the system’s default Python interpreter with all its installed libraries.
+
+To delete a virtual environment, just delete its folder. (In this case, it would be rm -rf venv.)
+
+In order to keep your environment consistent, it’s a good idea to “freeze” the current state of the environment packages. To do this, run:
+```
+$ pip freeze > requirements.txt
+```
+This will create a requirements.txt file, which contains a simple list of all the packages in the current environment, and their respective versions. You can see the list of installed packages without the requirements format using pip list. Later it will be easier for a different developer (or you, if you need to re-create the environment) to install the same packages using the same versions:
+```
+$ pip install -r requirements.txt
+```
+This can help ensure consistency across installations, across deployments, and across developers.
+
+### Installing virtualenvwrapper
+virtualenvwrapper provides a set of commands which makes working with virtual environments much more pleasant. It also places all your virtual environments in one place.
+
+To install (make sure virtualenv is already installed):
+```
+$ pip install virtualenvwrapper
+$ export WORKON_HOME=~/Envs
+$ source /usr/local/bin/virtualenvwrapper.sh
+```
+(Full virtualenvwrapper install instructions.)
+
+For Windows, you can use the virtualenvwrapper-win.
+
+To install (make sure virtualenv is already installed):
+```
+$ pip install virtualenvwrapper
+```
+In Windows, the default path for WORKON_HOME is %USERPROFILE%\Envs
+
+Basic Usage
+Create a virtual environment:
+```
+$ mkvirtualenv project_folder
+```
+This creates the project_folder folder inside ~/Envs.
+
+Work on a virtual environment:
+```
+$ workon project_folder
+```
+Alternatively, you can make a project, which creates the virtual environment, and also a project directory inside $WORKON_HOME, which is cd-ed into when you workon project_folder.
+```
+$ mkproject project_folder
+```
+virtualenvwrapper provides tab-completion on environment names. It really helps when you have a lot of environments and have trouble remembering their names.
+
+workon also deactivates whatever environment you are currently in, so you can quickly switch between environments.
+
+Deactivating is still the same:
+```
+$ deactivate
+```
+To delete:
+```
+$ rmvirtualenv venv
+```
 
 ### Working with Python 3
 At this point, you have the system Python 2.7 available, potentially the Homebrew version of Python 2 installed, and the Homebrew version of Python 3 as well.
