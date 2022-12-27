@@ -48,6 +48,7 @@ seaborn==0.10.1
     # via -r requirements.in
 six==1.16.0
     # via python-dateutil
+plotly==5.11.0
 scikit-image
 https://github.com/betatim/rio-tiler/archive/0cbe4ecbc638ec6d7136ab1ffa50f2b9fb48bbd8.zip
 rasterio
