@@ -1,4 +1,4 @@
-name: uav_workshop
+name: uav
 
 channels:
   - anaconda
