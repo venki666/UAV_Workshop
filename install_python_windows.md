@@ -84,14 +84,14 @@ Setting up the Python path to system variables alleviates the need for using ful
 
 * Select the Variable value field. Add the path to the python.exe file preceded with a semicolon (;). For example, in the image below, we have added ";C:\Python34."
 
-**Step 7: Install virtualnv**
-You have Python, and you have Pip to manage packages. Now, you need one last software package - virtualnv. Virtualnv enables you to create isolated local virtual environments for your Python projects.
+**Step 7: Install virtualenv**
+You have Python, and you have Pip to manage packages. Now, you need one last software package - virtualenv. Virtualenv enables you to create isolated local virtual environments for your Python projects.
 
-Why use virtualnv?
+Why use virtualenv?
 
 Python software packages are installed system-wide by default. Consequently, whenever a single project-specific package is changed, it changes for all your Python projects. You would want to avoid this, and having separate virtual environments for each project is the easiest solution.
 
-To install virtualnv:
+To install virtualenv:
 
 * Open the Start menu and type "cmd."
 
@@ -101,7 +101,7 @@ To install virtualnv:
 
 C:\Users\Username> pip install virtualenv
 
-Upon completion, virtualnv is installed on your system.
+Upon completion, virtualenv is installed on your system.
 
 To create a virtual environment use the command:
 ```
