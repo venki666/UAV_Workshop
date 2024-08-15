@@ -1,0 +1,17 @@
+command
+takeoff
+up 40
+delay 2
+forward 40
+delay 2
+ccw 60
+delay 2
+forward 40
+delay 2
+ccw 60
+delay 2
+forward 40
+delay 2
+land
+
+
